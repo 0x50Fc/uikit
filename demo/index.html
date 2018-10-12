@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <meta content="utf-8" name="charset" />
+    <title>demo</title>
+    <style type="text/css">
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="main"></canvas>
+
+    <script type="text/javascript" src="../kk.js"></script>
+    <script type="text/javascript">
+
+        function Canvas(element) {
+            this.element = element;
+        };
+
+        Canvas.prototype = Object.create(Object.prototype, {
+
+            getContext: {
+                value: function (name) {
+                    return this.element.getContext(name);
+                },
+                writable: false,
+                configurable: false
+            },
+
+            width: {
+                get: function () {
+                    return this.element.width;
+                },
+                configurable: false
+            },
+
+            height: {
+                get: function () {
+                    return this.element.height;
+                },
+                configurable: false
+            },
+
+            createCanvas: {
+                value: function (width, height) {
+                    var e = document.createElement("canvas");
+                    e.width = width;
+                    e.height = height;
+                    return new Canvas(e);
+                },
+                writable: false,
+                configurable: false
+            }
+        });
+
+        (function () {
+
+            var element = document.getElementById("main");
+            var canvas = new Canvas(element);
+            var scale = window.devicePixelRatio;
+            element.width = (window.innerWidth * scale);
+            element.height = (window.innerHeight * scale);
+
+            var resize = function () {
+                element.width = (element.clientWidth * scale);
+                element.height = (element.clientHeight * scale);
+                if (typeof canvas.onresize == 'function') {
+                    canvas.onresize(element.width, element.height);
+                }
+            };
+
+            window.addEventListener("resize", resize);
+
+            var doc = new kk.Document();
+
+            kk.ui.openlibs(doc);
+            kk.ui.run(canvas, doc, scale, 375 * scale);
+
+            var e = doc.createElement("view");
+
+            (function (element) {
+
+                var e = doc.createElement("view");
+                e.appendTo(element);
+                e.set("background-color", "#ff0000");
+                e.set("width", "100px");
+                e.set("height", "100px");
+
+            })(e);
+
+            doc.rootElement = e;
+
+            resize();
+
+        })();
+    </script>
+</body>
+
+</html>
