@@ -14,16 +14,23 @@ interface httpHeader {
  *  data	开发者服务器返回的数据
  * 开发者服务器返回的 HTTP 状态码
  * header	Object	开发者服务器返回的 HTTP Response Header
+ * //camera use :
+ * tempImagePath:	string	照片文件的临时路径
+ * tempThumbPath	string	封面图片文件的临时路径	
+ * tempVideoPath	string	视频的文件的临时路径
  */
 interface successCallbackRes {
     data: any,
     tempFilePath: string,
     statusCode: number,
-    header: httpHeader
+    header: httpHeader,
+    tempImagePath:	string,
+    tempThumbPath:	string,		
+    tempVideoPath:	string	
 }
 
 interface failCallbackRes {
-    err: string
+    failCode: string
 }
 interface completeCallbackRes {
     info: string
