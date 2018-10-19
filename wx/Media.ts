@@ -20,6 +20,7 @@ namespace wx {
 
     }
     export function createInnerAudioContext(): InnerAudioContext {
+        return;
 
     }
 }
