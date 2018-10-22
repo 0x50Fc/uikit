@@ -1,11 +1,29 @@
-//媒体
+//音频
 namespace wx {
 
     /**
      * 结束播放语音
      */
-    export function stopVoice(resp: callback_success_fail_complete) {
+    export function stopVoice(callbacks: callback_success_fail_complete) {
     }
+    /**
+     * 暂停正在播放的语音。再次调用 wx.playVoice 播放同一个文件时，会从暂停处开始播放。如果想从头开始播放，需要先调用 wx.stopVoice。
+     */
+    export function pauseVoice(callbacks:callback_success_fail_complete){}
+    /**
+     * 开始播放语音，同时只允许一个语音文件正在播放，如果前一个语音文件还没播放完，将中断前一个语音播放。
+     */
+    export function playVoice(param:playvoiceParam){
+    }
+    /**
+     * 设置 InnerAudioContext 的播放选项，设置之后对当前小程序全局生效
+     */
+    export function setInnerAudioOption(param:setInnerAudioOptionParam={mixWithOther:true,obeyMuteSwitch:true}){
+    }
+    /**
+     * 获取当前支持的音频输入源
+     */
+    export function getAvailableAudioSources(callbacks: callback_success_fail_complete){}
     /**
      * 创建 audio 上下文 AudioContext 对象。
      * 
@@ -14,14 +32,28 @@ namespace wx {
      */
     export function createAudioContext(id: string, thisobj: any): wxAudioContext {
         return;
-
     }
     export function createInnerAudioContext(): InnerAudioContext {
         return;
-
     }
 }
+/**
+ * filePath	string		是	需要播放的语音文件的文件路径	
+ * duration	number	60	否	指定录音时长，到达指定的录音时长后会自动停止录音，单位：秒	>= 1.6.0
+ */
+interface playvoiceParam extends callback_success_fail_complete{
+    filePath:	string,		    
+    duration?:	number
+}
+/**
+ * mixWithOther	boolean	true	否	是否与其他音频混播，设置为 true 之后，不会终止其他应用或微信内的音乐	
+ * obeyMuteSwitch	boolean	true	否	（仅在 iOS 生效）是否遵循静音开关，设置为 false 之后，即使是在静音模式下，也能播放声音
+ */
 
+interface setInnerAudioOptionParam extends callback_success_fail_complete{
+    mixWithOther?:	boolean,	
+    obeyMuteSwitch?: boolean	
+}
 /**
  * audioContext 通过 id 跟一个 <audio/> 组件绑定，操作对应的 <audio/> 组件。
  */

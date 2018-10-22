@@ -74,7 +74,7 @@ class LivePlayerContext {
     /**
      * 进入全屏
      */
-    public requestFullScreen(param:requestFullScreenParam) { }
+    public requestFullScreen(param:LrequestFullScreenParam) { }
     /**
      * 退出全屏
      */
@@ -83,6 +83,6 @@ class LivePlayerContext {
 }
 
 //direction	number	 默认值0	否	设置全屏时的方向
-interface requestFullScreenParam extends callback_success_fail_complete{
+interface LrequestFullScreenParam extends callback_success_fail_complete{
     direction?:number
 }

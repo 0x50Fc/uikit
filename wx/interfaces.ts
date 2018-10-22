@@ -18,22 +18,45 @@ interface httpHeader {
  * tempImagePath:	string	照片文件的临时路径
  * tempThumbPath	string	封面图片文件的临时路径	
  * tempVideoPath	string	视频的文件的临时路径
+ * 
+ * //拍摄视频或从手机相册中选视频。
+ * tempFilePath	string	选定视频的临时文件路径	
+ * duration	number	选定视频的时间长度	
+ * size	number	选定视频的数据量大小	
+ * height	number	返回选定视频的高度	
+ * width	number	返回选定视频的宽度
+ * //
+ * audioSources	Array.<string>	支持的音频输入源列表，可在 RecorderManager.start() 接口中使用。返回值定义参考 https://developer.android.com/reference/kotlin/android/media/MediaRecorder.AudioSource
+ * 合法值：
+ * auto	自动设置，默认使用手机麦克风，插上耳麦后自动切换使用耳机麦克风，所有平台适用
+ * buildInMic	手机麦克风，仅限 iOS
+ * headsetMic	耳机麦克风，仅限 iOS
+ * mic	麦克风（没插耳麦时是手机麦克风，插耳麦时是耳机麦克风），仅限 Android
+ * camcorder	同 mic，适用于录制音视频内容，仅限 Android
+ * voice_communication	同 mic，适用于实时沟通，仅限 Android
+ * voice_recognition	同 mic，适用于语音识别，仅限 Android
+ * 
  */
 interface successCallbackRes {
-    data: any,
-    tempFilePath: string,
-    statusCode: number,
-    header: httpHeader,
-    tempImagePath:	string,
-    tempThumbPath:	string,		
-    tempVideoPath:	string	
+    data?: any,
+    tempFilePath?: string,
+    statusCode?: number,
+    header?: httpHeader,
+    tempImagePath?:	string,
+    tempThumbPath?:	string,		
+    tempVideoPath?:	string,
+    duration?:number,
+    size?:number,
+    height?:number,
+    width?:number,
+    audioSources?:Array<string>
 }
 
 interface failCallbackRes {
-    failCode: string
+    failCode?: string
 }
 interface completeCallbackRes {
-    info: string
+    info?: string
 }
 //成功，失败，完成 回调 接口
 interface callback_success_fail_complete{
@@ -53,20 +76,20 @@ interface onOpenCallbackRes {
  */
 
 interface onCloseCallbackRes {
-    info: string
+    info?: string
 }
 
 /**
  * 错误事件的回调函数的参数
  */
 interface onErroCallbackRes {
-    errMsg: string,
-    errCode:number
+    errMsg?: string,
+    errCode?:number
 }
 
 /**
  * 接受到服务器的消息事件的回调函数的参数
  */
 interface onMessageCallbackRes {
-     data: string | ArrayBuffer 
+     data?: string | ArrayBuffer 
 }
