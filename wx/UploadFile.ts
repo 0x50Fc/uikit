@@ -35,7 +35,7 @@ interface uploadFileParam extends callback_success_fail_complete {
  * totalBytesSent  已经上传的数据长度
  * totalBytesExpectedToSend 预期需要上传的数据总长度
  */
-interface onProgressUpdateCallbackRes {
+interface onProgressUpdateCallbackResp {
     progress: number,
     totalBytesSent: number,
     totalBytesExpectedToSend: number
@@ -49,6 +49,6 @@ class UploadTask {
     abort() {
     }
     //监听上传进度变化事件
-    onProgressUpdate(callback: (res:onProgressUpdateCallbackRes)=>any) {
+    onProgressUpdate(callback: (res:onProgressUpdateCallbackResp)=>any) {
     }
 }

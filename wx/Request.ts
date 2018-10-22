@@ -1,5 +1,13 @@
 
 //发起请求
+namespace ws {
+
+    export function request(param:requestParam): RequestTask {
+        
+        return;
+    }
+
+}
 
 class RequestTask {
 
@@ -23,17 +31,9 @@ class RequestTask {
  */
 interface requestParam  extends callback_success_fail_complete{
     url: string,
-    data?: any,
+    data?: string|Object|ArrayBuffer,
     header?: httpHeader,
     method?: string,//默认值 GET
     dataType?: string,//默认值 json
     responseType?: string,//默认值 text
-}
-namespace ws {
-
-    export function request(param:requestParam): RequestTask {
-        
-        return;
-    }
-
 }

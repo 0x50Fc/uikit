@@ -10,6 +10,11 @@ namespace ws {
         return;
     }
     /**
+     * 关闭 WeSocket 连接
+     */
+    export function closeSocket(param: SocketCloseParam) {
+    }
+    /**
      * 通过 WebSocket 连接发送数据，需要先 wx.connectSocket，并在 wx.onSocketOpen 回调之后才能发送。
      */
     export function sendSocketMessage(param: sendSocketMessageParam) {
@@ -33,11 +38,6 @@ namespace ws {
      * 监听WebSocket 错误事件
      */
     export function onSocketError(callback: (res:onErroCallbackRes)=>any) {
-    }
-    /**
-     * 关闭 WeSocket 连接
-     */
-    export function closeSocket(param: SocketCloseParam) {
     }
 }
 
