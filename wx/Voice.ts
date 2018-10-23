@@ -13,7 +13,7 @@ namespace wx {
     /**
      * 设置 InnerAudioContext 的播放选项，设置之后对当前小程序全局生效
      */
-    export function setInnerAudioOption(param: setInnerAudioOptionParam = { mixWithOther: true, obeyMuteSwitch: true }) {
+    export function setInnerAudioOption(param: setInnerAudioOptionParam) {
     }
 
 }

@@ -43,9 +43,17 @@ class Canvas {
     /**
      * Canvas.toTempFilePath 的同步版本
      */
-    public toTempFilePathSync(options:toTempFilePathParam){
+    public toTempFilePathSync(options: toTempFilePathParam) {
 
     }
+    /**
+     * 获取画布对象的绘图上下文
+     * @param contextType{string} 上下文类型  取值范围(2d	2d 绘图上下文    webgl	webgl 绘图上下文)
+     * @param contextAttributes   webgl 上下文属性，仅当 contextType 为 webgl 时有效
+     */
+    public getContext(contextType: string, contextAttributes:contextAttributesPatam={
+        antialias:false,preserveDrawingBuffer:false,antialiasSamples:2
+    }): RenderingContext { return; }
 
 
 
@@ -78,4 +86,23 @@ interface toTempFilePathParam extends callback_success_fail_complete {
     destHeight?: number
     fileType?: string
     quality?: number
+}
+/**
+ * 画布对象的绘图上下文。
+ * 通过 Canvas.getContext('2d') 接口可以获取 CanvasRenderingContext2D 对象，实现了 HTML Canvas 2D Context 定义的大部分属性、方法。
+ * 通过 Canvas.getContext('webgl') 接口可以获取 WebGLRenderingContext 对象，实现了 WebGL 1.0 定义的所有属性、方法、常量。
+ */
+
+class RenderingContext {
+
+}
+/**
+ * antialias	boolean	false	否	表示是否抗锯齿	
+ * preserveDrawingBuffer	boolean	false	否	表示是否绘图完成后是否保留绘图缓冲区	
+ * antialiasSamples	number	2	否	抗锯齿样本数。最小值为 2，最大不超过系统限制数量，仅 iOS 支持
+ */
+interface contextAttributesPatam {
+    antialias?: boolean
+    preserveDrawingBuffer?: boolean
+    antialiasSamples?: number
 }
