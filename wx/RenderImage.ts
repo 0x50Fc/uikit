@@ -1,3 +1,4 @@
+//渲染
 //图片
 namespace wx {
     export function createImage(): Image { 
