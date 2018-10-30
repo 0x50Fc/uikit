@@ -63,6 +63,7 @@ namespace wx {
 
     export interface failCallbackRes {
         failCode?: string
+        errMsg?: string
     }
     export interface completeCallbackRes {
         info?: string
