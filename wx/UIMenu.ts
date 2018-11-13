@@ -6,7 +6,7 @@ namespace wx {
 
     export function getMenuButtonBoundingClientRect(): rectInfoObj { return }
 
-    export function setMenuStyle(obj:setMenuStyleObj) { }
+    // export function setMenuStyle(obj:setMenuStyleObj) { }
 
     /**
      *  width	number	宽度	
@@ -26,13 +26,13 @@ namespace wx {
         left: number
     }
 
-    /**
-     * style	string		是	样式风格
-     * style 的合法值
-     *  （light	浅色
-          dark	深色）
-     */
-    interface setMenuStyleObj extends callback_success_fail_complete {
-        style: string
-    }
+    // /**
+    //  * style	string		是	样式风格
+    //  * style 的合法值
+    //  *  （light	浅色
+    //       dark	深色）
+    //  */
+    // interface setMenuStyleObj extends callback_success_fail_complete {
+    //     style: string
+    // }
 }

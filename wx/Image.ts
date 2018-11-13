@@ -43,7 +43,7 @@ namespace wx {
      */
     interface getImageInfoObj {
         src: string
-        success: (res: getImageInfoSuccessObj) => any
+        success?: (res: getImageInfoSuccessObj) => any
         fail?: (res: wx.failCallbackRes) => any
         complete?: (res: wx.completeCallbackRes) => any
     }

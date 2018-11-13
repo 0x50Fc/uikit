@@ -1,4 +1,4 @@
-
+//设备
 //网络
 
 namespace wx {
@@ -6,12 +6,12 @@ namespace wx {
      * 获取网络类型
      */
 
-    export function getNetworkType(callbacks: getNetworkTypeCB) { }
+    export function getNetworkType(obj: getNetworkTypeObj) { }
     /**
      * 监听网络状态变化事件
      */
 
-    export function onNetworkStatusChange(callback:(res:onNetworkStatusChangeResp)=>any) { }
+    export function onNetworkStatusChange(callback:(res:onNetworkStatusChangeObj)=>any) { }
 
     /**
      * networkType	string	网络类型
@@ -25,11 +25,11 @@ namespace wx {
         )
      */
 
-    interface getNetworkTypeuSccessRes {
+    interface getNetworkTypeuSccessObj {
         networkType: string
     }
-    interface getNetworkTypeCB {
-        success?: (res: getNetworkTypeuSccessRes) => any
+    interface getNetworkTypeObj {
+        success?: (res: getNetworkTypeuSccessObj) => any
         fail?: (res: failCallbackRes) => any
         complete?: (res: completeCallbackRes) => any
     }
@@ -44,7 +44,7 @@ namespace wx {
         unknown	Android 下不常见的网络类型
         none	无网络)
      */
-    interface onNetworkStatusChangeResp {
+    interface onNetworkStatusChangeObj {
         isConnected: boolean
         networkType: string
     }

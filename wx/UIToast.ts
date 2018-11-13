@@ -19,11 +19,11 @@ namespace wx {
     /**
      * 隐藏消息提示框
      */
-    export function hideToast(callbacks?: callback_success_fail_complete) { }
+    export function hideToast(callbacks?: wx.callback_success_fail_complete) { }
     /**
      * 隐藏 loading 提示框
      */
-    export function hideLoading(callbacks?: callback_success_fail_complete) { }
+    export function hideLoading(callbacks?: wx.callback_success_fail_complete) { }
     /**
      * ​显示操作菜单
      */
@@ -34,7 +34,7 @@ namespace wx {
      * title	string		是	提示的内容	
      * mask	boolean	false	否	是否显示透明蒙层，防止触摸穿透
      */
-    interface showLoadingObj extends callback_success_fail_complete {
+    interface showLoadingObj extends wx.callback_success_fail_complete {
         title: string
         mask?: boolean
     }
@@ -78,7 +78,7 @@ namespace wx {
      * mask	boolean	false	否	是否显示透明蒙层，防止触摸穿透
      */
 
-    interface showToastObj extends callback_success_fail_complete {
+    interface showToastObj extends wx.callback_success_fail_complete {
         title: string
         icon?: string
         image?: string
@@ -103,6 +103,5 @@ namespace wx {
      */
     interface showActionSheetSuccessObj{
         tapIndex	:number	
-
     }
 }

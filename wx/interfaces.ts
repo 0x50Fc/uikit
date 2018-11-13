@@ -58,7 +58,9 @@ namespace wx {
         audioSources?: Array<string>,
         savedFilePath?: number,
         files?: Array<string>,
-        stats?: Stats | Object
+        stats?: Stats | Object,
+        errCode?:string
+        errMsg?:string
     }
 
     export interface failCallbackRes {

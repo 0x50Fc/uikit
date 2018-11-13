@@ -1,4 +1,4 @@
-
+//设备
 //陀螺仪
 namespace wx{
 
@@ -6,7 +6,7 @@ namespace wx{
      * 开始监听陀螺仪数据。
      */
 
-    export function startGyroscope(param:startGyroscopeParam){}
+    export function startGyroscope(obj?:startGyroscopeObj){}
     /**
      * 停止监听陀螺仪数据。
      */
@@ -16,7 +16,7 @@ namespace wx{
      * 监听陀螺仪数据变化事件。频率根据 wx.startGyroscope() 的 interval 参数。
      * 可以使用 wx.stopGyroscope() 停止监听。
      */
-    export function onGyroscopeChange(callback:(res:onGyroscopeChangeParam)=>any){}
+    export function onGyroscopeChange(obj?:(res:onGyroscopeChangeObj)=>any){}
 
     /**
      * interval	string	normal	否	监听陀螺仪数据回调函数的执行频率
@@ -25,7 +25,7 @@ namespace wx{
         ui	适用于更新 UI 的回调频率，在 60ms/次 左右
         normal	普通的回调频率，在 200ms/次 左右    )
      */
-    interface  startGyroscopeParam{
+    interface  startGyroscopeObj extends wx.callback_success_fail_complete{
         interval?:	string
     }
 
@@ -34,7 +34,7 @@ namespace wx{
      * y	number	Y 轴的角速度
      * z	number	Z 轴的角速度
      */
-    interface onGyroscopeChangeParam {
+    interface onGyroscopeChangeObj {
         x?: number
         y?: number
         z?: number
