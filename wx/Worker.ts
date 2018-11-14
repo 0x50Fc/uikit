@@ -14,7 +14,7 @@ namespace wx {
          * 向主线程/Worker 线程发送的消息。
          */
 
-        public postMessage(message: Object) { }
+        public postMessage(message: any) { }
         /**
          * 结束当前 Worker 线程。仅限在主线程 worker 对象上调用。
          */
@@ -29,6 +29,6 @@ namespace wx {
      * message	Object	主线程/Worker 线程向当前线程发送的消息
      */
     interface WorkerOnMessageObj {
-        message: Object
+        message: any
     }
 }

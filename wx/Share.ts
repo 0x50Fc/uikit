@@ -10,7 +10,7 @@ namespace wx {
     /**
      * 隐藏转发按钮
      */
-    export function hideShareMenu(object?: callback_success_fail_complete) { }
+    export function hideShareMenu(object?: wx.callback_success_fail_complete) { }
 
     /**
      * 显示当前页面的转发按钮
@@ -21,18 +21,7 @@ namespace wx {
      * 更新转发属性
      */
     export function updateShareMenu(obj: updateShareMenuObj) { }
-    /**
-     * 主动拉起转发，进入选择通讯录界面。
-     */
-    export function shareAppMessage(obj: shareAppMessageObj) { }
-    /**
-     * 监听用户点击右上角菜单的「转发」按钮时触发的事件
-     */
-    export function onShareAppMessage(callback: (res: onShareAppMessageObj) => any) { }
-    /**
-     * 取消监听用户点击右上角菜单的「转发」按钮时触发的事件
-     */
-    export function offShareAppMessage(callback: Function) { }
+
 
     /**
      * shareTicket	string		是	shareTicket	
@@ -44,9 +33,9 @@ namespace wx {
     interface getShareInfoObj {
         shareTicket: string
         timeout?: number
-        success: (res: getShareInfoSObj) => any
-        fail?: (res: failCallbackRes) => any
-        complete?: (res: completeCallbackRes) => any
+        success?: (res: getShareInfoSuccessObj) => any
+        fail?: (res: wx.failCallbackRes) => any
+        complete?: (res: wx.completeCallbackRes) => any
     }
 
     /**
@@ -54,7 +43,7 @@ namespace wx {
      * encryptedData	string	包括敏感数据在内的完整转发信息的加密数据，详细见加密数据解密算法	
      * iv	string	加密算法的初始向量，详细见加密数据解密算法
      */
-    interface getShareInfoSObj {
+    interface getShareInfoSuccessObj {
         errMsg: string
         encryptedData: string
         iv: string
@@ -62,35 +51,25 @@ namespace wx {
     /**
      * withShareTicket	boolean	false	否	是否使用带 shareTicket 的转发详情
      */
-    interface showShareMenuObj extends callback_success_fail_complete {
+    interface showShareMenuObj extends wx.callback_success_fail_complete {
         withShareTicket?: boolean
     }
     /**
      * withShareTicket	boolean		是	是否使用带 shareTicket 的转发详情
      */
-    interface updateShareMenuObj extends callback_success_fail_complete {
-        withShareTicket: boolean
+    interface updateShareMenuObj extends wx.callback_success_fail_complete {
+        withShareTicket?: boolean	//false	否	是否使用带 shareTicket 的转发详情	
+        isUpdatableMessage?: boolean	//false	否	是否是动态消息，详见动态消息	>= 2.4.0
+        activityId?: string		//否	动态消息的 activityId。通过 createActivityId 接口获取	>= 2.4.0
+        templateInfo?: templateInfoObj		//否	动态消息的模板信息
     }
 
-    /**
-     * title	string		否	转发标题，不传则默认使用当前小游戏的昵称。	
-    imageUrl	string		否	转发显示图片的链接，可以是网络图片路径或本地图片文件路径或相对代码包根目录的图片文件路径。显示图片长宽比是 5:4	
-    query	string		否	查询字符串，从这条转发消息进入后，可通过 wx.getLaunchInfoSync() 或 wx.onShow() 获取启动参数中的 query。必须是 key1=val1&key2=val2 的格式。
-     */
-    interface shareAppMessageObj {
-        title?: string
-        imageUrl?: string
-        query?: string
+    interface templateInfoObj {
+        parameterList: Array<parameterListObj>
+    }
+    interface parameterListObj {
+        name: string		//	参数名	
+        value: string		//	参数值
     }
 
-    /**
-     * title	string	转发标题，不传则默认使用当前小游戏的昵称。	
-    imageUrl	string	转发显示图片的链接，可以是网络图片路径或本地图片文件路径或相对代码包根目录的图片文件路径。显示图片长宽比是 5:4	
-    query	string	查询字符串，必须是 key1=val1&key2=val2 的格式。从这条转发消息进入后，可通过 wx.getLaunchOptionSync() 或 wx.onShow() 获取启动参数中的 query。
-     */
-    interface onShareAppMessageObj {
-        title: string
-        imageUrl: string
-        query: string
-    }
 }
