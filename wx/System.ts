@@ -46,7 +46,7 @@ namespace wx {
     }
     interface getSystemInfoObj {
         success?: (res: getSystemInfoSuccessObj) => any
-        fail?: (res: failCallbackRes) => any
-        complete?: (res: completeCallbackRes) => any
+        fail?: (res: wx.failCallbackRes) => any
+        complete?: (res: wx.completeCallbackRes) => any
     }
 }

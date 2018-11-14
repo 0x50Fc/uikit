@@ -168,4 +168,18 @@ namespace wx {
         errCode: number	//错误码	
         errMsg: string	//错误信息
     }
+
+      interface buttonStyleObj {
+        left: number
+        top: number
+        width: number
+        height: number
+        backgroundColor: string
+        borderColor: string
+        borderWidth: number
+        borderRadius: number
+        textAlign: string
+        fontSize: number
+        lineHeight: number
+    }
 }
