@@ -11,7 +11,7 @@ namespace wx{
      * 停止监听陀螺仪数据。
      */
 
-    export function stopGyroscope(callbacks?: callback_success_fail_complete){}
+    export function stopGyroscope(callbacks?: wx.callback_success_fail_complete){}
     /**
      * 监听陀螺仪数据变化事件。频率根据 wx.startGyroscope() 的 interval 参数。
      * 可以使用 wx.stopGyroscope() 停止监听。

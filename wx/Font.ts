@@ -13,7 +13,7 @@ family	string		是	定义的字体名称
 source	string		是	字体资源的地址。建议格式为 TTF 和 WOFF，WOFF2 在低版本的iOS上会不兼容。	
 desc	Object		否	可选的字体描述符
      */
-    interface fontAttribute extends callback_success_fail_complete {
+    interface fontAttribute extends wx.callback_success_fail_complete {
         fontFamily: string
         source: string
         desc?: FontDescObj

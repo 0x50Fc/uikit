@@ -11,7 +11,7 @@ namespace wx{
     /**
      * 停止监听设备方向的变化。
      */
-    export function stopDeviceMotionListening(callbacks?:callback_success_fail_complete){
+    export function stopDeviceMotionListening(callbacks?:wx.callback_success_fail_complete){
     }
     /**
      * 监听设备方向变化事件。频率根据 wx.startDeviceMotionListening() 的 interval 参数。

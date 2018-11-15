@@ -16,7 +16,7 @@ namespace wx{
     /**
      * enableDebug	boolean		是	是否打开调试
      */
-    interface debugParam extends callback_success_fail_complete{
+    interface debugParam extends wx.callback_success_fail_complete{
         enableDebug	:boolean
     }
 
